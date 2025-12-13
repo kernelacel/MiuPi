@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Traductor Broteñol 🌱</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor Broteñol</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Traductor Broteñol 🌱</h1>
-  <textarea id="text-input" placeholder="Escribe aqui..."></textarea>
-  <div class="buttons">
-    <button id="to-bro">Traducir a Broteñol</button>
-    <button id="to-es">Traducir a Español</button>
-    <button id="speak">Leer en Español</button>
-  </div>
-  <div id="result"></div>
-  <script src="script.js"></script>
+
+    <h1>Traductor Broteñol</h1>
+
+    <div class="input-container">
+        <textarea id="text-input" class="pixel-input" placeholder="Escribe aquí..."></textarea>
+    </div>
+
+    <div class="button-row">
+        <button id="to-bro" class="pixel-btn">Traducir a Broteñol</button>
+        <button id="to-es" class="pixel-btn">Traducir a Español</button>
+        <button id="speak" class="pixel-btn">Leer en Español</button>
+
+        <button id="btn-copy" class="pixel-btn" onclick="navigator.clipboard.writeText(document.getElementById('result').innerText)">Copiar</button>
+        <button id="btn-clean" class="pixel-btn" onclick="document.getElementById('text-input').value=''; document.getElementById('result').innerHTML='';">Limpiar</button>
+    </div>
+
+    <div class="output-container">
+        <div id="result" class="output-text">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
