@@ -5,12 +5,14 @@ body {
     background-position: center;
     background-attachment: fixed;
     margin: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
+    padding-top: 100px;
+    min-height: 100vh;
+    height: auto;
 }
 
 h1 {
@@ -162,7 +164,9 @@ h1 {
 
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 4px solid #000;       /* Borde negro grueso */
+  border-radius: 0px;           /* ¡Cero curvas! Esquinas rectas */
+  box-shadow: 6px 6px 0px #000; 
   word-break: break-word;
   font-size: 10px;
 
@@ -171,4 +175,28 @@ h1 {
     line-height: 1.5;
     padding: 10px; /* Un poco de relleno interno */
     box-sizing: border-box;
+}
+
+@media (max-height: 1400px) {
+    body {
+        zoom: 0.90;
+    }
+}
+
+@media (max-height: 1000px) {
+    body {
+        zoom: 0.65;
+    }
+}
+
+@media (max-height: 800px) {
+    body {
+        zoom: 0.67; /* Tu laptop 1366x768 */
+    }
+}
+
+@media (max-height: 600px) {
+    body {
+        zoom: 0.55;
+    }
 }
