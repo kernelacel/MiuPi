@@ -21,14 +21,13 @@
         <button id="speak" class="pixel-btn">Leer en Español</button>
 
         <button id="btn-copy" class="pixel-btn" onclick="navigator.clipboard.writeText(document.getElementById('result').innerText)">Copiar</button>
-        <button id="btn-clean" class="pixel-btn" onclick="document.getElementById('text-input').value=''; document.getElementById('result').innerHTML='';">Limpiar</button>
+        <button id="btn-clean" class="pixel-btn" onclick="document.getElementById('result').value=''; document.getElementById('result').innerHTML='';">Limpiar</button>
     </div>
 
-    <div class="output-container">
-        <div id="result" class="output-text">
+
+        <div id="result" >
             </div>
-    </div>
-
+   
     <script src="script.js"></script>
 </body>
 </html>

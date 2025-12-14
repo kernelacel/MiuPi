@@ -143,6 +143,32 @@ h1 {
     box-sizing: border-box;
 }
 
+
 .output-text::-webkit-scrollbar {
     display: none;
+
+}
+
+#result {
+  margin-top: 60px;
+  width: 50%;
+  top: 30%;   
+  left: 8%;
+  height: auto;       /* La altura se ajusta al texto */
+  max-height: 55%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  max-width: 800px;
+
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  word-break: break-word;
+  font-size: 10px;
+
+    font-family: 'Press Start 2P', cursive;
+    color: #000;
+    line-height: 1.5;
+    padding: 10px; /* Un poco de relleno interno */
+    box-sizing: border-box;
 }
