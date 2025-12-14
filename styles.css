@@ -200,3 +200,32 @@ h1 {
         zoom: 0.55;
     }
 }
+
+@media (max-width: 600px) {
+    body {
+        /* En móvil, dejamos de centrar verticalmente para que no se baje tanto */
+        justify-content: flex-start; 
+        padding-top: 60px; /* Controla qué tan arriba empieza el título */
+        
+        /* Aseguramos que haya scroll si no cabe */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    h1 {
+        /* Reducimos la letra y el margen negativo para que no se monte */
+        font-size: 18px;
+        margin-bottom: -40px; /* Menos agresivo que el -100px de escritorio */
+    }
+
+    .input-container {
+        /* Ajustamos el ancho para que no toque los bordes del móvil */
+        width: 95%;
+        margin-bottom: 0px; /* Reseteamos márgenes si hace falta */
+    }
+    
+    .button-row {
+        width: 95%;
+        gap: 5px; /* Botones más pegaditos */
+    }
+}
