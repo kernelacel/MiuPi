@@ -53,3 +53,110 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   word-break: break-word;
 }
+
+h1 {
+    margin-bottom: 20px;
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 0px #fff; /* Sombra blanca para leerse mejor sobre fondo */
+}
+
+/* --- 1. CONTENEDOR INPUT (Arriba) --- */
+.input-container {
+    background-image: url('box_brotecito.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* La imagen siempre llena el contenedor */
+
+    width: 100%;
+    max-width: 600px; /* Tamaño máximo en escritorio */
+    aspect-ratio: 600 / 350; /* ¡CRUCIAL! Mantiene la forma de la imagen siempre igual */
+
+    position: relative;
+    margin: 0 auto 20px auto;
+}
+
+.pixel-input {
+    position: absolute;
+    /* Estas coordenadas en % anclan el texto a la zona blanca de la imagen */
+    /* Si la imagen crece, el texto se mueve con ella */
+    top: 58%;
+    left: 4%;
+    width: 92%;
+    height: 25%;
+
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none; /* Importante: que el usuario no rompa el diseño estirando */
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    /* Truco: usar unidades de viewport (vw) o clamp() si quieres que la letra también escale,
+       pero 16px suele estar bien */
+    color: #000;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+/* --- BOTONES --- */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.pixel-btn {
+    background-image: url('buton.png');
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    min-width: 150px;
+    height: 50px;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    text-shadow: 2px 2px 0px #000;
+    image-rendering: pixelated;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pixel-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- 2. CONTENEDOR RESULTADO (Abajo) --- */
+.output-container {
+    background-image: url('box.png');
+    background-size: 100% 100%;
+
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 600 / 150; /* Proporción de la caja rectangular */
+
+    position: relative;
+    margin: 0 auto;
+    image-rendering: pixelated;
+}
+
+.output-text {
+    position: absolute;
+    /* Centrado perfecto usando porcentajes */
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    height: 70%;
+
+    font-size: 14px;
+    color: #000;
+    overflow-y: auto; /* Scroll si el texto es muy largo */
+    text-align: left;
+    display: flex;
+    align-items: center; /* Centrado vertical opcional */
+}
