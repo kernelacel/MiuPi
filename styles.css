@@ -1,6 +1,6 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
 body {
-    /* CORRECCIÓN: Usamos fondo.jpg que es el archivo real */
-    background-image: url('fondo.png');
+    background-image: url('fondo.png'); /* Asegúrate de que coincida con tu archivo (jpg/png) */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -14,58 +14,67 @@ body {
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: -100px;
     color: #000;
     text-align: center;
     font-size: 24px;
-    text-shadow: 2px 2px 0px #fff; /* Sombra blanca para leerse mejor sobre fondo */
+    text-shadow: 2px 2px 0px #fff; 
 }
 
-/* --- 1. CONTENEDOR INPUT (Arriba) --- */
+/* --- 1. CONTENEDOR INPUT (Arriba con Brotecito) --- */
 .input-container {
     background-image: url('box_brotecito.png');
     background-repeat: no-repeat;
-    background-size: 100% 100%; /* La imagen siempre llena el contenedor */
-
+    background-size: 100% 100%;
+    
     width: 100%;
-    max-width: 600px; /* Tamaño máximo en escritorio */
-    aspect-ratio: 600 / 350; /* ¡CRUCIAL! Mantiene la forma de la imagen siempre igual */
-
+    max-width: 1000px;
+    /* Mantiene la proporción de la imagen (ajusta si se ve aplastado) */
+    aspect-ratio: 600 / 350; 
+    
     position: relative;
-    margin: 0 auto 20px auto;
+    margin: 0 auto -50px auto; /* Reduje el margen inferior un poco */
 }
 
 .pixel-input {
     position: absolute;
-    /* Estas coordenadas en % anclan el texto a la zona blanca de la imagen */
-    /* Si la imagen crece, el texto se mueve con ella */
-    top: 58%;
-    left: 4%;
-    width: 92%;
-    height: 25%;
-
+    /* AJUSTE DE ALINEACIÓN: Bajamos un poco más el inicio del texto */
+    top:57%;     /* Antes 55%, ahora 60% para asegurar que esté en lo blanco */
+    left: 18%;     /* Un poco más de margen lateral */
+    width: 60%;   
+    height: 12%;  /* Altura reducida para no tocar los bordes */
+    
     background: transparent;
     border: none;
     outline: none;
-    resize: none; /* Importante: que el usuario no rompa el diseño estirando */
-
+    resize: none; /* Quita la esquina para estirar */
+    
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    /* Truco: usar unidades de viewport (vw) o clamp() si quieres que la letra también escale,
-       pero 16px suele estar bien */
+    font-size: 10px; 
     color: #000;
-    padding: 0;
-    box-sizing: border-box;
     line-height: 1.5;
+    padding: 10px; /* Un poco de relleno interno */
+    box-sizing: border-box;
+
+    /* OCULTAR BARRAS DE DESPLAZAMIENTO (Pero permitir scroll) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
 }
 
-/* --- BOTONES --- */
+/* Ocultar scrollbar en Chrome/Safari/Opera */
+.pixel-input::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- 2. FILA DE BOTONES --- */
 .button-row {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: -50px;
     justify-content: center;
+    width: 100%;
+    max-width: 600px;
 }
 
 .pixel-btn {
@@ -73,32 +82,37 @@ h1 {
     background-size: 100% 100%;
     background-color: transparent;
     border: none;
-    min-width: 150px;
-    height: 50px;
+    
+    min-width: 140px; /* Un poco más compactos */
+    height: 120px;
+    
     color: white;
     font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
+    font-size: 10px; 
     cursor: pointer;
     text-shadow: 2px 2px 0px #000;
-    image-rendering: pixelated;
+    
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    image-rendering: pixelated; 
+    transition: transform 0.1s;
 }
 
 .pixel-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.70);
 }
 
-/* --- 2. CONTENEDOR RESULTADO (Abajo) --- */
+/* --- 3. CONTENEDOR RESULTADO (Abajo) --- */
 .output-container {
     background-image: url('box.png');
     background-size: 100% 100%;
-
+    
     width: 100%;
-    max-width: 600px;
-    aspect-ratio: 600 / 150; /* Proporción de la caja rectangular */
-
+    max-width: 1000px;
+    aspect-ratio: 600 / 150; 
+    
     position: relative;
     margin: 0 auto;
     image-rendering: pixelated;
@@ -106,16 +120,29 @@ h1 {
 
 .output-text {
     position: absolute;
-    /* Centrado perfecto usando porcentajes */
-    top: 15%;
-    left: 5%;
-    width: 90%;
-    height: 70%;
-
-    font-size: 14px;
+    /* AJUSTE DE ALINEACIÓN */
+    top: 30%;   
+    left: 8%;
+    width: 83%;
+    height: 30%;
+    
+    font-size: 7px;
     color: #000;
-    overflow-y: auto; /* Scroll si el texto es muy largo */
     text-align: left;
+    line-height: 1.6;
+    
+    /* Scroll automático si el texto es largo, pero barra oculta */
+    overflow-y: auto; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    
     display: flex;
-    align-items: center; /* Centrado vertical opcional */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente si hay poco texto */
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.output-text::-webkit-scrollbar {
+    display: none;
 }
